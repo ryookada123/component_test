@@ -1,0 +1,109 @@
+// utility
+
+@mixin flex {
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex-direction: row;
+}
+
+@mixin flexspace {
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+@mixin grid_12 {
+  display: grid;
+  grid-template-columns: repeat(12, [col] 1fr);
+  grid-column-gap: 1em;
+  grid-row-gap: 0px;
+}
+
+
+
+@mixin blue-bg {
+    background: #ebf4ff;
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+    max-width: 100%;
+    padding:120px 0;
+
+    @include tabland{
+		padding:60px 0;
+	}
+}
+
+@mixin white-bg {
+    background: #fff;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    padding:120px 0;
+
+    @include tabland{
+		padding:60px 0;
+	}
+}
+
+
+/*============keyframe_animation=================*/
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  } 
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($animation-name) {
+  -webkit-animation: $animation-name;
+  -moz-animation: $animation-name;
+  animation: $animation-name;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+/*============media query=================*/
+
+$con: 1040px; // PC
+$consub: 960px; // PC2
+$tab: 834px; // タブレット
+$sp: 480px;  // スマホ
+
+@mixin pc {
+  @media (min-width: #{$con + 1px}) {
+  @content;
+}
+}
+
+@mixin con {
+    @media (max-width: ($con)) {
+    @content;
+  }
+}
+
+@mixin consub {
+  @media (max-width: ($consub)) {
+  @content;
+}
+}
+
+  @mixin tab {
+    @media (max-width: ($tab)) {
+      @content;
+    }
+  }
+
+
+  @mixin sp {
+    @media (max-width: ($sp)) {
+      @content;
+    }
+  }

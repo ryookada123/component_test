@@ -9,7 +9,7 @@
 </head>
 <body>
 	<main>
-	text
+	text2
 	</main>
 </body>
 </html>
